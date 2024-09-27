@@ -18,6 +18,8 @@
     <summary><i>Interview</i> <b>why？</b></summary>
 </details>
 
+---
+
 ```javascript
 import { useEffect, useState } from "react";
 import axios from "axios";
