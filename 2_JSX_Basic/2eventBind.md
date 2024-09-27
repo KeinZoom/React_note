@@ -37,3 +37,16 @@ function App() {
 <details>
     <summary><i>Interview</i>：函数柯里化</summary>
 </details>
+
+```javascript
+    // 实现一个柯里化函数f(1)(2)(3)
+    function f(a) {
+      return (b) => {
+        return (c) => {
+          return a + b + c;
+        };
+      };
+    }
+
+    console.log(f(1)(2)(3));
+```
