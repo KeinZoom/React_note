@@ -1,14 +1,45 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import ControlledForm from "./components/ControlledForm";
-import Communication from "./components/Communication";
-import ChildrenProp from "./components/ChildrenProp";
-import Child2Parent from "./components/Child2Parent";
-import NeighbourComponent from "./components/NeighbourComponent";
-import ContextImplementation from "./components/ContextImplementation";
-import DataLoading from "./components/getdata/DataLoading";
+import { Provider } from "react-redux";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/home";
+import Article from "./pages/article";
+import Layout from "./router";
+import Board from "./pages/board";
+import About from "./pages/about";
+import NotFound from "./pages/notfound";
+// import store from "./store";
+// import StoreUsage from "./components/storeUsage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/article",
+    element: <Article />,
+  },
+  {
+    path: "/inner",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Board />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
+
 function App() {
-  return <DataLoading />;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

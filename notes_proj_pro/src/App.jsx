@@ -1,6 +1,5 @@
 import router from "./router";
 import { RouterProvider } from "react-router-dom";
-import { Button } from "antd-mobile";
 import "./App.css";
 
 function App() {
