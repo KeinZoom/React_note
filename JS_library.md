@@ -29,3 +29,20 @@
 
 - 广泛使用的前端请求库
 - [axios](https://axios-http.com/docs/intro)
+
+7. #### Nomalize.css
+
+- 常用于样式 reset，修改`html` `body` `#root`的样式
+- [Nomalize](https://necolas.github.io/normalize.css/)
+
+  ```css
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+  }
+
+  #root {
+    height: 100%;
+  }
+  ```

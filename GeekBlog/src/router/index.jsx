@@ -1,11 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "@/pages/Layout";
+import GeekLayout from "@/pages/Layout";
 import Login from "@/pages/Login";
+import RouteAuthorize from "@/components/RouteAuthrize";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      // <RouteAuthorize>
+      <GeekLayout />
+      // </RouteAuthorize>
+    ),
   },
 
   {

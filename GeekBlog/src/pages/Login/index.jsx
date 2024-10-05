@@ -1,15 +1,16 @@
 import { Card, Button, Form, Input } from "antd";
 import "@/pages/Login/index.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getToken } from "@/store/modules/token";
+import { fetchLogin } from "@/store/modules/token";
+import { setToken } from "@/utils";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const onFinish = (value) => {
-    dispatch(getToken(value));
-    localStorage.setItem("token-key", value);
+  const onFinish = (loginForm) => {
+    dispatch(fetchLogin(loginForm));
   };
+
   return (
     <div className="login">
       <Card className="login__container">
