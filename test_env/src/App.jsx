@@ -6,6 +6,9 @@ import Layout from "./router";
 import Board from "./pages/board";
 import About from "./pages/about";
 import NotFound from "./pages/notfound";
+import ReducerTemp from "./components/useReducerTemp";
+import ParComp from "./components/forwardRef";
+import ZustandUsage from "./components/ZustandUsage";
 // import store from "./store";
 // import StoreUsage from "./components/storeUsage";
 
@@ -39,7 +42,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <ZustandUsage />;
 }
 
 export default App;

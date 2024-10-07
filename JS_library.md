@@ -51,3 +51,8 @@
 
 - 一个基于 JavaScript 的开源可视化图表库
 - [Apache ECharts](https://echarts.apache.org/zh/index.html)
+
+9. #### zustand
+
+- 相较 Redux，写法更加简单的状态管理工具
+- [zustand](https://zustand-demo.pmnd.rs/)
