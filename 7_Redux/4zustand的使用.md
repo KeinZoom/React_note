@@ -42,3 +42,84 @@ function ZustandUsage() {
 
 export default ZustandUsage;
 ```
+#### zustand的异步支持
+- zustand的方法中可以直接编写异步方法，最后使用set更新状态即可
+
+```javascript
+import { useEffect } from "react";
+
+const useStore = create((set) => {
+  return {
+    productList: [],
+    getProductList: async () => {
+      const res = await fetch("https://dummyjson.com/products");
+      const data = await res.json();
+      set({ productList: [...data.products] });
+    },
+  };
+});
+
+function ZustandUsage() {
+  const { productList, getProductList } = useStore();
+
+  useEffect(() => {
+    getProductList();
+  }, [getProductList]);
+
+  return (
+    <div>
+      <ul>
+        {productList.map((item) => (
+          <div key={item.id}>{item.title}</div>
+        ))}
+      </ul>
+    </div>
+  );}
+```
+
+#### zustand切片模式
+- 使用场景：单个store较大时，采用**切片模式**进行模块拆分组合，实现模块化
+
+- countStoreSlice
+  ```javascript
+  const countStoreSlice = (set) => {
+    return {
+      count: 0,
+      inc: () => {
+        set((state) => ({ count: state.count + 1 }));
+      },
+      dec: () => {
+        set((state) => ({ count: state.count - 1 }));
+      },
+      rst: () => {
+        set({ count: 0 });
+      },
+    };
+  };
+
+  export default countStoreSlice;
+  ```
+- channelStoreSlice
+  ```javascript
+  const channelStoreSlice = (set) => {
+  return {
+    productList: [],
+    getProductList: async () => {
+      const res = await fetch("https://dummyjson.com/products");
+      const data = await res.json();
+      set({ productList: [...data.products] });
+    },
+  };
+  };
+  export default channelStoreSlice;
+  ```
+
+- 切片合并
+  ```javascript
+  const useStore = create((...a) => {
+    return {
+      ...countStoreSlice(...a),
+      ...channelStoreSlice(...a),
+    };
+  });
+  ```
