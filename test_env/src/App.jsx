@@ -9,8 +9,10 @@ import NotFound from "./pages/notfound";
 import ReducerTemp from "./components/useReducerTemp";
 import ParComp from "./components/forwardRef";
 import ZustandUsage from "./components/ZustandUsage";
-// import store from "./store";
-// import StoreUsage from "./components/storeUsage";
+import ComTestLocalStroage from "./components/ComTestLocalStroage";
+import NumberStorePrac from "./components/NumberStorePrac";
+import store from "./store_prac";
+import StoreUsage from "./components/storeUsage";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +44,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <ZustandUsage />;
+  return (
+    <Provider store={store}>
+      <NumberStorePrac />
+    </Provider>
+  );
 }
 
 export default App;
