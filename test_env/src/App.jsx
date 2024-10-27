@@ -13,6 +13,8 @@ import ComTestLocalStroage from "./components/ComTestLocalStroage";
 import NumberStorePrac from "./components/NumberStorePrac";
 import store from "./store_prac";
 import StoreUsage from "./components/storeUsage";
+import PracUseReducer from "./components/PracUseReducer";
+import PracZusStore from "./components/zustandPrac/PracZusStore";
 
 const router = createBrowserRouter([
   {
@@ -44,11 +46,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <Provider store={store}>
-      <NumberStorePrac />
-    </Provider>
-  );
+  return <PracZusStore />;
 }
 
 export default App;

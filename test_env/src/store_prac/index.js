@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import numberStore from "./modules/numberStore";
 import articleStore from "./modules/articleStore";
+import fibStore from "./modules/fibStore";
 
-const store = configureStore({
+export default configureStore({
   reducer: {
     number: numberStore,
     article: articleStore,
+    fib: fibStore,
   },
 });
-
-export default store;
